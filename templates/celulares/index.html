@@ -1,0 +1,73 @@
+{% extends 'base/base.html'%}
+
+{%block title%}
+Inventario
+{%endblock%}
+
+      {%block nav%}
+      <ul class="nav navbar-nav">
+      <li ><a href="{% url 'cliente:index' %}">Clientes</a></li>
+      <li><a href="{% url 'venta:index' %}">Ventas</a></li>
+      <li class="active"><a href="{% url 'inventario:index' %}">Inventario</a></li>
+      </ul>
+      {%endblock%}
+
+{%block section%}
+<section class="container ">
+  <form class="navbar-form justify1 ban" method="POST" action="/buscar/" >
+    {%csrf_token%}
+        <div class="form-group col3 panel panel-default ">
+          <div class="panel-heading ">
+                <h3 class="panel-title">Consultas</h3>
+          </div>
+          <dilsv class="">
+          <input class="form-control" placeholder="¿Qué desea buscar?" type="text" name="buscalo">
+          <button type="submit" class="btn btn-default ">Buscar</button>
+          <a class="btn btn-info justify" href="{% url 'inventario:registro' %}">Agregar Celulares</a>
+          </div>
+
+          <div class="tablita justify">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  {%block elementos%}
+                  <th>ID celular</th>
+                  <th>Nombre</th>
+                  <th>Fabricante</th>
+                  <th>Stock</th>
+                  <th>Precio de compra</th>
+                  <th>Precio de venta</th>
+                  <th>Acciones</th>
+                  {%endblock%}
+                </tr>
+              </thead>
+              <tbody>
+                {%if object_list%}
+                {%for celular in object_list%}
+                <tr>
+                    <td>{{ celular.id_celular }}</td>
+                    <td>{{ celular.nombre }}</td>
+                    <td>{{ celular.fabricante }}</td>
+                    <td>{{ celular.stock }}</td>
+                    <td>{{ celular.precio_compra }}</td>
+                    <td>{{ celular.precio_venta }}</td>
+                    <td>
+                      <a class="btn btn-primary" href="{% url 'inventario:actualizar' celular.id_celular %}">Editar</a>
+                      <a class="btn btn-danger" href="{% url 'inventario:eliminar' celular.id_celular %}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+                {%else%}
+                <h1>No hay coincidencias de busqueda</h1>
+                {%endif%}
+              </tbody>
+            </table>
+          </div>
+          <a class="btn btn-info justify" href="{% url 'inventario:registro' %}">Agregar Celulares</a>
+        </div>
+    </form>
+
+
+
+</section>
+{%endblock%}

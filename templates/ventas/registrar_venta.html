@@ -1,0 +1,20 @@
+{% extends 'base/base.html'%}
+
+{%block title%}
+Realizar venta
+{%endblock%}
+
+{%block section%}
+
+  <div class="col-lg-10">
+    <form method="post">
+      <fieldset>
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submyt" name="button">Guardar</button>
+      </fieldset>
+    </form>
+
+
+</div>
+{%endblock%}

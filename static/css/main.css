@@ -1,0 +1,112 @@
+body{
+	background-color: #edebea;
+}
+
+.justify
+{
+  display:-moz-box;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  justify-content:space-around;
+  flex-wrap:wrap;
+  align-items:center;
+  align-content:space-around;
+ }
+
+.justify1
+{
+  display:-moz-box;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  justify-content:space-around;
+  flex-wrap:wrap-reverse;
+  align-items:flex-start;
+  align-content:space-around;
+}
+
+.justify2
+{
+  display:-moz-box;
+  display:-ms-flexbox;
+  display:-webkit-flex;
+  display: -webkit-box;
+  display: flex;
+  justify-content:flex-start;
+  flex-wrap:wrap;
+  align-items:flex-start;
+  align-content:space-around;
+  flex-grow: <2>;
+}
+
+.witin
+{
+  width: 20%;
+}
+ul
+{
+	list-style-type:none;
+}
+
+.hol
+{
+	font-size: 150%;
+}
+
+.col1
+{
+	margin:.2em;
+	padding: 1em;
+	background-color: #DDDDDD;
+	border-radius: 1em;
+}
+
+.col2
+{
+	margin:.2em;
+	padding: 1em;
+	background-color: #dddddd;
+	border-radius: 1em;
+}
+
+.col3
+{
+	margin:.1em;
+	border-radius: 1em;
+
+
+}
+
+legend
+{
+	border-color: #1C2127;
+}
+
+.tablita
+{
+background-color: #C7C7BF;
+margin-top: 1em;
+}
+
+.ban
+{
+	margin-right: 1em;
+	margin-left: 1em;
+}
+
+@media all and (max-width: 500px){
+
+body{
+  font-size: 80%
+}
+
+
+
+
+  .btn{
+    font-size: 70%;
+  }
+}

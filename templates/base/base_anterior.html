@@ -1,0 +1,41 @@
+<!-- {% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  {%block extrastatic%}
+  {%endblock%}
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <meta charset="utf-8">
+  <title>{%block title%} Document{%endblock%}</title>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+          <li><a href="{% url 'cliente:index' %}">Clientes</a></li>
+          <li><a href="{% url 'venta:index' %}">Ventas</a></li>
+          <li><a href="{% url 'inventario:index' %}">Inventario</a></li>
+
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          {%block buscador%}
+          {%endblock%}
+          <div class="form-group">
+            <input class="form-control" placeholder="Search" type="text">
+          </div>
+          <button type="submit" class="btn btn-default">Buscar</button>
+        </form>
+
+      </div>
+    </div>
+  </nav>
+<section>
+  {%block section%}
+  {%endblock%}
+</section>
+
+</body>
+</html> -->

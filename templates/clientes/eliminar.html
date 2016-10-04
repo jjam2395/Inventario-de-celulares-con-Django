@@ -1,0 +1,15 @@
+{%extends 'base/base.html'%}
+
+{%block title%}
+Eliminar celular
+{%endblock%}
+
+{%block section%}
+  <form method="post">
+    {%csrf_token%}
+    <h1>¿Desea eliminar el registro de {{object.nombre}}?</h1>
+    <button class="btn btn-danger" type="submit" name="button">Sí, eliminar</button>
+    <a class="btn btn-default" href="{% url 'inventario:index' %}">Cancelar</a>
+
+  </form>
+{%endblock%}

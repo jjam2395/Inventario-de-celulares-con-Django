@@ -1,0 +1,20 @@
+{%extends 'base/base.html'%}
+
+{%block title%}
+Registrar Cliente
+{%endblock%}
+
+{%block section%}
+<div class="container justify witin">	
+			<div class="panel panel-primary">
+				<div class="panel-heading">Datos personales</div>	
+				  	<div class=" panel-body">
+						<form class="justify" method="post">
+						  {%csrf_token%}
+						  {{form.as_p}}
+						  <button class="btn-success" type="submyt" name="button">Guardar</button>
+						</form>
+					</div>
+			</div>
+</div>
+{%endblock%}

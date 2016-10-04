@@ -1,0 +1,13 @@
+{%extends 'base/base.html'%}
+
+{%block title%}
+Registrar celular
+{%endblock%}
+
+{%block section%}
+<form method="post">
+  {%csrf_token%}
+  {{form.as_p}}
+  <button type="submyt" name="button">Guardar</button>
+</form>
+{%endblock%}

@@ -1,0 +1,79 @@
+{% extends 'base/base.html'%}
+
+      {%block nav%}
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="{% url 'cliente:index' %}">Clientes</a></li>
+          <li><a href="{% url 'venta:index' %}">Ventas</a></li>
+          <li><a href="{% url 'inventario:index' %}">Inventario</a></li>
+        </ul>
+        {%endblock%}
+
+{%block section%}
+<section class="container ">
+  <form class="navbar-form justify1 ban" method="POST" action="/buscar/" >
+    {%csrf_token%}
+        <div class="form-group col3 panel panel-default ">
+          <div class="panel-heading ">
+                <h3 class="panel-title">Consultas</h3>
+          </div>
+
+
+          <input class="form-control" placeholder="¿Qué desea buscar?" type="text" name="buscalo">
+          <button type="submit" class="btn btn-default">Buscar</button>
+          <div class="tablita justify">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  {%block elementos%}
+                  <th>ID</th>
+                  <th>Nombre</th>
+                  <th>A.Paterno</th>
+                  <th>A.Materno</th>
+                  <th>Dirección</th>
+                  <th>Telefono</th>
+                  <th>Fecha nac.</th>
+                  {%endblock%}
+                </tr>
+              </thead>
+              <tbody>
+                {%if object_list%}
+                {%for cliente in object_list%}
+                <tr>
+                    <td>{{ cliente.id_cliente }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.paterno }}</td>
+                    <td>{{ cliente.materno }}</td>
+                    <td>{{ cliente.direccion }}</td>
+                    <td>{{ cliente.telefono }}</td>
+                    <td>{{ cliente.f_nacer }}</td>
+                    <td>
+                      <a class="btn btn-primary" href="{% url 'cliente:actualizar' cliente.id_cliente %}">Editar</a>
+                      <a class="btn btn-danger" href="{% url 'cliente:eliminar' cliente.id_cliente %}">Eliminar</a>
+                    </td>
+                </tr>
+                {%endfor%}
+                {%else%}
+                <h1>No hay coincidencias de busqueda</h1>
+                {%endif%}
+              </tbody>
+            </table>
+          </div>
+                  <a class="btn btn-info justify" href="{% url 'cliente:registro' %}">Agregar clientes</a>
+        </div>
+
+    </form>
+
+
+
+
+
+</section>
+{%endblock%}
+
+
+
+
+
+{%block title%}
+Clientes
+{%endblock%}
